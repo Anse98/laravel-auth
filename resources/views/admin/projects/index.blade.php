@@ -73,13 +73,13 @@
   
 <script>
   
-    function deleteNotification(comicId) {
-      const deleteMenu = document.getElementById('modal-delete-' + comicId);
+    function deleteNotification(projectId) {
+      const deleteMenu = document.getElementById('modal-delete-' + projectId);
       deleteMenu.classList.add("d-block");
     }
   
-    function hideModal(comicId) {
-      const deleteMenu = document.getElementById('modal-delete-' + comicId);
+    function hideModal(projectId) {
+      const deleteMenu = document.getElementById('modal-delete-' + projectId);
   
       deleteMenu.classList.remove('d-block');
     }
