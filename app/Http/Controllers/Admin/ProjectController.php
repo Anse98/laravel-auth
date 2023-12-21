@@ -13,7 +13,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::limit(20)->get();
+        $projects = Project::all();
 
         return view('admin.projects.index', compact('projects'));
     }
@@ -31,7 +31,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'title' => 'required|max:100',
+            'thumb' => 'required|url',
+            'description' => 'required',
+            'slug' => 'required'
+        ]);
+
+        $new_project = Project::create($data);
+
+
+        return redirect()->route('admin.projects.show', $new_project->id);
     }
 
     /**
@@ -55,7 +67,18 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:100',
+            'thumb' => 'required|url',
+            'description' => 'required',
+            'slug' => 'required'
+        ]);
+
+        $data = $request->all();
+
+        $project->update($data);
+
+        return redirect()->route('admin.projects.index');
     }
 
     /**
