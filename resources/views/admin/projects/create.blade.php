@@ -2,34 +2,29 @@
 
 @section('content')
     <section>
-        <div class="container">
-            <h1 class="my-4">Crea il tuo progetto</h1>
+        <div class="container py-4">
+            <h1 class="my-4 text-light">Crea il tuo progetto</h1>
             <form action="{{ route('admin.projects.store') }}" method="POST">
                 
                 @csrf
 
                 <div class="mb-3">
-                    <label for="title" class="form-label">Titolo</label>
-                    <input type="text" class="form-control" name="title" id="title" placeholder="Titolo" value="{{old('title')}}">
+                    <label for="title" class="form-label color-grey">Titolo</label>
+                    <input type="text" required class="form-control text-bg-dark" name="title" id="title" placeholder="Titolo" value="{{old('title')}}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="thumb" class="form-label">Url immagine</label>
-                    <input type="text" class="form-control" name="thumb" id="thumb" placeholder="Url Immagine" value="{{old('thumb')}}">
+                    <label for="thumb" class="form-label color-grey">Url immagine</label>
+                    <input type="text" required class="form-control text-bg-dark" name="thumb" id="thumb" placeholder="Url Immagine" value="{{old('thumb')}}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="description" class="form-label">Descrizione</label>
-                    <textarea class="form-control" name="description" id="description" rows="4" placeholder="Descrizione del progetto">{{old('description')}}</textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="slug" class="form-label">Slug</label>
-                    <input type="text" class="form-control" name="slug" id="slug" placeholder="Slug" value="{{old('slug')}}">
+                    <label for="description" class="form-label color-grey">Descrizione</label>
+                    <textarea class="form-control text-bg-dark" name="description" id="description" rows="4" placeholder="Descrizione del progetto">{{old('description')}}</textarea>
                 </div>
 
                 <div>
-                    <input type="submit" class="btn btn-primary" value="Aggiungi">
+                    <input type="submit" class="btn main-button-background text-light btn-sm p-2" value="Aggiungi">
                 </div>
 
             </form>

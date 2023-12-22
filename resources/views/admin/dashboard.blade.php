@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h2 class="fs-4 text-secondary my-4">
-        {{ __('Dashboard') }}
+<div class="container py-3">
+    <h2 class="fs-4 text-secondary my-4 text-light">
+        {{ __('Benvenuto') }}
     </h2>
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header">{{ __('User Dashboard') }}</div>
+                <div class="card-header">{{ Auth::user()->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,7 +17,7 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Hai loggato con successo !') }}
                 </div>
             </div>
         </div>

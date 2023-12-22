@@ -2,33 +2,35 @@
 
 @section('content')
     <section>
-        <div class="container">
-            <h1 class="my-4">Lista dei progetti</h1>
-
-            <table class="table">
+        <div class="container py-4">
+          <div class="d-flex justify-content-between align-items-center">
+            <h1 class="py-4 color-red">Lista dei progetti</h1>
+            <span class="btn main-button-background btn-sm p-1"><a href="{{ route('admin.projects.create') }}" class="text-decoration-none text-light btn btn-sm ">Aggiungi un progetto</a></span>
+          </div>
+            <table class="table table-dark">
                 <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Titolo</th>
-                      <th>Url immagine</th>
-                      <th>Slug</th>
+                      <th class="py-4">ID</th>
+                      <th class="py-4">Titolo</th>
+                      <th class="py-4">Url immagine</th>
+                      <th class="py-4">Slug</th>
                       <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     @forelse ($projects as $project)
                         <tr>
-                          <td>{{ $project->id }}</td>
+                          <td><span class="color-red">{{ $project->id }}</span></td>
                           <td>
-                              <a href="{{ route('admin.projects.show', $project->id) }}">{{$project->title}} </a>   
+                              <a class="text-decoration-none btn btn-sm main-button-background" href="{{ route('admin.projects.show', $project->id) }}">{{$project->title}}</a>
                           </td>
-                          <td>{{ $project->thumb }}</td>
-                          <td>{{ $project->slug }}</td>
-                          <td class="">
+                          <td><span class="text-white-50">{{ $project->thumb }}</span></td>
+                          <td><span class="text-white-50">{{ $project->slug }}</span></td>
+                          <td>
                             <div class="d-flex gap-3">
   
                                 {{-- Pulsante modifica --}}
-                                <span><a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-primary">Modifica</a></span>
+                                <span><a href="{{route('admin.projects.edit', $project->id)}}" class="btn modify-button-bg btn-sm text-light">Modifica</a></span>
   
                                 {{-- Modale --}}
                                 <div class="index" id="modal-delete-{{ $project->id }}">
@@ -40,16 +42,16 @@
                                           @method('DELETE')
   
                                           {{-- Pulsante elimina --}}
-                                          <input type="submit" value="Elimina" class="btn btn-danger">
+                                          <input type="submit" value="Elimina" class="btn btn-danger btn-sm">
                                         </form>
                                         
                                         {{-- Pulsante annulla --}}
-                                        <span class="btn btn-primary" onclick="hideModal('{{ $project->id }}')">Annulla</span>
+                                        <span class="btn btn-primary btn-sm" onclick="hideModal('{{ $project->id }}')">Annulla</span>
                                       </div>
                                   </div>
                                 </div>
                               
-                              <span class="btn btn-danger" onclick="deleteNotification('{{ $project->id }}')">Elimina</span>
+                              <span class="btn btn-danger btn-sm" onclick="deleteNotification('{{ $project->id }}')">Elimina</span>
                             </div>
                           </td>
                         </tr>
@@ -62,10 +64,6 @@
                     @endforelse
                   </tbody>
                 </table>
-  
-                <div class="d-flex justify-content-center">
-                  <span class="btn btn-primary"><a href="{{ route('admin.projects.create') }}" class="text-decoration-none text-light pb-4" >Aggiungi un progetto</a></span>
-                </div>
           </div>
         </section>
         
