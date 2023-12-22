@@ -3,6 +3,18 @@
     width: 150px;
 }
 
+.navbar-nav .nav-link.show {
+    color: rgb(183, 180, 180);
+}
+
+.navbar-nav .nav-link.active {
+    color: rgb(183, 180, 180);
+}
+
+.dropdown-item:hover {
+    background-color: #212529;
+}
+
 
 // REGOLE GENERALI
 .bg-dark-grey {
@@ -15,6 +27,16 @@
 
 .color-grey {
     color: gray;
+}
+
+.color-light-grey {
+    color: rgb(183, 180, 180);
+}
+
+.color-light-grey {
+    &:hover {
+        color: rgb(161, 160, 160);
+    }
 }
 
 .main-button-background,

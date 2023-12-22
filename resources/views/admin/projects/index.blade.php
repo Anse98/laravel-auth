@@ -20,14 +20,14 @@
                   <tbody>
                     @forelse ($projects as $project)
                         <tr>
-                          <td><span class="color-red">{{ $project->id }}</span></td>
-                          <td>
+                          <td class="py-3"><span class="color-red">{{ $project->id }}</span></td>
+                          <td class="py-3">
                               <a class="text-decoration-none btn btn-sm main-button-background" href="{{ route('admin.projects.show', $project->id) }}">{{$project->title}}</a>
                           </td>
-                          <td><span class="text-white-50">{{ $project->thumb }}</span></td>
-                          <td><span class="text-white-50">{{ $project->slug }}</span></td>
+                          <td class="py-3"><span class="text-white-50">{{ $project->thumb }}</span></td>
+                          <td class="py-3"><span class="text-white-50">{{ $project->slug }}</span></td>
                           <td>
-                            <div class="d-flex gap-3">
+                            <div class="d-flex gap-3 py-3">
   
                                 {{-- Pulsante modifica --}}
                                 <span><a href="{{route('admin.projects.edit', $project->id)}}" class="btn modify-button-bg btn-sm text-light">Modifica</a></span>
